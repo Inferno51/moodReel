@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.tiyssa.entity.Employee;
-import com.tiyssa.service.IEmployeeService;
+import com.tiyssa.entity.Genres;
+import com.tiyssa.service.IGenreService;
 
 @Controller
-public class EmployeeController {
+public class GenreController {
 
 	@Autowired
-	private IEmployeeService employeeService;
+	private IGenreService genreService;
 	
 	@RequestMapping("/")
 	public ModelAndView home(ModelAndView mv) {
@@ -28,19 +28,19 @@ public class EmployeeController {
 		return mv;
  	}
 
-	@RequestMapping(value="/employee/{id}", method = RequestMethod.GET )
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Integer id) {
-		Employee employee = employeeService.getEmployeeById(id);
-		return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+	@RequestMapping(value="/genre/{id}", method = RequestMethod.GET )
+	public ResponseEntity<Genres> getGenreById(@PathVariable("id") Integer id) {
+		Genres genre = genreService.getGenreById(id);
+		return new ResponseEntity<Genres>(genre, HttpStatus.OK);
 	}
 
-	@RequestMapping(value= "/employee", method = RequestMethod.GET)
-	public ResponseEntity<List<Employee>> getAllEmployee() {
-		List<Employee> employees = employeeService.getAllEmployees();
-		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
+	@RequestMapping(value= "/genre", method = RequestMethod.GET)
+	public ResponseEntity<List<Genres>> getAllGenres() {
+		List<Genres> genres = genreService.getAllGenres();
+		return new ResponseEntity<List<Genres>>(genres, HttpStatus.OK);
 	}
 
-	@RequestMapping(value= "/employee", method = RequestMethod.POST)
+	/*@RequestMapping(value= "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Void> employeePerson(@RequestBody Employee employee, UriComponentsBuilder builder) {
         boolean flag = employeeService.addEmployee(employee);
         if (flag == false) {
@@ -49,15 +49,15 @@ public class EmployeeController {
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/employee/{id}").buildAndExpand(employee.getEmployeeId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-	}
-	@RequestMapping(value="/employee/{id}", method = RequestMethod.PUT )
+	}*/
+	/*@RequestMapping(value="/employee/{id}", method = RequestMethod.PUT )
 	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
 		employeeService.updateEmployee(employee);
 		return new ResponseEntity<Employee>(employee, HttpStatus.OK);
-	}
-	@RequestMapping(value="/employee/{id}", method = RequestMethod.DELETE )
+	}*/
+	/*@RequestMapping(value="/employee/{id}", method = RequestMethod.DELETE )
 	public ResponseEntity<Void> Employee(@PathVariable("id") Integer employeeId) {
 		employeeService.deleteEmployee(employeeId);
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-	}	
+	}	*/
 } 

@@ -9,7 +9,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.tiyssa.entity.Employee;
+
+import com.tiyssa.entity.Genres;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
@@ -26,15 +27,15 @@ public class DbConfig {
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/mood_reel?autoReconnect=true&useSSL=false");
 		dataSource.setUsername("root");
-		dataSource.setPassword("root");
+		dataSource.setPassword("sesame");
 		return dataSource;
 	}
 
 	@Bean
 	public SessionFactory sessionFactory() {
-		return new LocalSessionFactoryBuilder(getDataSource()).addAnnotatedClasses(Employee.class)
+		return new LocalSessionFactoryBuilder(getDataSource()).addAnnotatedClasses(Genres.class)
 				.buildSessionFactory();
 	}
 
