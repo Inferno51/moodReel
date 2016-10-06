@@ -140,7 +140,7 @@
                             <input type="text" id="zipcode" name="zipcode" placeholder="Zip Code">
                         </div>
                         
-                        <button type="button" class="btn btn-default" id="lookupButton">Submit</button>
+                        <a href="#results" class="page-scroll"><button type="button" class="btn btn-default" id="lookupButton">Submit</button></a>
 
                     <div class="checkbox">
                         <label><input type="checkbox">Opposite Weather?*</label>
@@ -161,15 +161,33 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Results</h2>
-                    <h3 class="section-subheading text-muted">Here's your local weather conditions:</h3>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div id="condition"></div>
-                    <div id="temp_f"></div>
-                    <div id="wind_dir"></div>
-                    <div id="wind_mph"></div>
+                <div class="col-lg-8 text-center">
+                    <h3 class="section-subheading text-muted">Here's your local weather conditions:</h3>
+                </div>
+                <div style="background-color:lightgrey" class="col-sm-4 text-center"
+                    <div id="weatherCondTable" class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Weather Condition</th>
+                                <th>Temperature</th>
+                            </tr>
+                            <tr style="text-align:left">
+                                <td id="condition"></td>
+                                <td id="temp_f"></td>
+                            </tr>
+                            <tr>
+                                <th>Wind Direction</th>
+                                <th>Wind Speed</th>
+                            </tr>
+                            <tr style="text-align:left">
+                                <td id="wind_dir"></td>
+                                <td id="wind_mph"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <h2>Your movie recommendations:</h2>

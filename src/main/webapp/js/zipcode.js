@@ -1,5 +1,5 @@
 $(function() {
-
+	
 			$("#lookupButton").click(
 					function() {
 						$.get("http://api.wunderground.com/api/b6882d76267c419a/conditions/q/" + $("#zipcode").val() + ".json",
