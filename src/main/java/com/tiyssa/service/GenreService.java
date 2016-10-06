@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import com.tiyssa.dao.IGenreDAO;
+
 import com.tiyssa.entity.Genres;
 @Service
 @Transactional
@@ -16,8 +18,8 @@ public class GenreService implements IGenreService {
 	private IGenreDAO genreDAO;
 
 	@Override
-	public Genres getTableId(int tableId) {
-		Genres obj = genreDAO.getTableId(tableId);
+	public Genres getGenreById(Integer genreId) {
+		Genres obj = genreDAO.getGenreById(genreId);
 		return obj;
 	}	
 
@@ -26,4 +28,17 @@ public class GenreService implements IGenreService {
 		return genreDAO.getAllGenres();
 	}
 
+	@Override
+	public Genres getCondition(String condition) {
+		Genres obj = genreDAO.getCondition(condition);
+		return obj;
+	}
+
+	@Override
+	public List<Genres> getConditionStatus(){
+		return genreDAO.getConditionStatus();
+	}
+
+	
+	
 }
