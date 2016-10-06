@@ -19,7 +19,7 @@ public class Genres implements Serializable {
     private int tableId;  
 	
 	@Column(name="condition")
-    private String condition;
+    private String weatherCondition;
 
     @Column(name="genre_by_id")
     private String genreById;
@@ -33,11 +33,11 @@ public class Genres implements Serializable {
 	}
 
 	public String getCondition() {
-		return condition;
+		return weatherCondition;
 	}
 
 	public void setCondition(String conditionToUse) {
-		this.condition = conditionToUse;
+		this.weatherCondition = conditionToUse;
 	}
 
 	public String getGenreById() {

@@ -39,6 +39,12 @@ public class GenreController {
 		List<Genres> genres = genreService.getAllGenres();
 		return new ResponseEntity<List<Genres>>(genres, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value= "/condition", method = RequestMethod.GET)
+	public ResponseEntity<List<Genres>> getConditionStatus() {
+		List<Genres> condition = genreService.getConditionStatus();
+		return new ResponseEntity<List<Genres>>(condition, HttpStatus.OK);
+	}
 
 	/*@RequestMapping(value= "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Void> employeePerson(@RequestBody Employee employee, UriComponentsBuilder builder) {

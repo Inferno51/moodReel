@@ -8,7 +8,7 @@ package com.tiyssa;
 	public class MovieGenreWeatherMethods {
 
 		static String[] rainList = {"Drizzle","Rain","Mist","Spray","Squals"};
-		static String[] cloudyList = {"Haze","Thunderstorm","Cloud"};
+		static String[] cloudyList = {"Haze","Thunderstorm","Cloud","Overcast"};
 		static String fogList = "Fog";
 		static String[] hailList = {"Crystals","Ice","Hail","Thunderstorms and Ice","Thunderstorms with Hail"};
 		static String[] snowList = {"Snow","Thunderstorms and Snow"};

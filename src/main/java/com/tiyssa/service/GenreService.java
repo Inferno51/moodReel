@@ -28,7 +28,16 @@ public class GenreService implements IGenreService {
 		return genreDAO.getAllGenres();
 	}
 
-	
+	@Override
+	public Genres getCondition(String condition) {
+		Genres obj = genreDAO.getCondition(condition);
+		return obj;
+	}
+
+	@Override
+	public List<Genres> getConditionStatus(){
+		return genreDAO.getConditionStatus();
+	}
 
 	
 	
