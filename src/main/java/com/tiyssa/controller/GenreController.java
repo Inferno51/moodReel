@@ -46,6 +46,11 @@ public class GenreController {
 		return new ResponseEntity<List<Genres>>(condition, HttpStatus.OK);
 	}
 
+	@RequestMapping(value="/condition/{conditionName}", method = RequestMethod.GET )
+	public ResponseEntity<Genres> getCondition(@PathVariable("conditionName") String conditionName) {
+		Genres genre = genreService.getCondition(conditionName);
+		return new ResponseEntity<Genres>(genre, HttpStatus.OK);
+	}
 	/*@RequestMapping(value= "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Void> employeePerson(@RequestBody Employee employee, UriComponentsBuilder builder) {
         boolean flag = employeeService.addEmployee(employee);
