@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tiyssa.dao.IGenreDAO;
 
+
+import com.tiyssa.dao.IGenreDAO;
+
 import com.tiyssa.entity.Genres;
 @Service
 @Transactional
@@ -18,8 +21,14 @@ public class GenreService implements IGenreService {
 	private IGenreDAO genreDAO;
 
 	@Override
-	public Genres getGenreById(Integer genreId) {
+
+	public Genres getGenreById(int genreId) {
 		Genres obj = genreDAO.getGenreById(genreId);
+		return obj;
+	}
+	public Genres getTableId(int tableId) {
+		Genres obj = genreDAO.getTableId(tableId);
+
 		return obj;
 	}	
 
@@ -27,6 +36,7 @@ public class GenreService implements IGenreService {
 	public List<Genres> getAllGenres(){
 		return genreDAO.getAllGenres();
 	}
+
 
 	@Override
 	public Genres getCondition(String condition) {
@@ -39,6 +49,5 @@ public class GenreService implements IGenreService {
 		return genreDAO.getConditionStatus();
 	}
 
-	
-	
+
 }

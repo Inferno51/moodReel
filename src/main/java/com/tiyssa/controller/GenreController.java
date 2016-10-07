@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tiyssa.entity.Genres;
 import com.tiyssa.service.IGenreService;
+import com.tiyssa.MovieGenreWeatherMethods;
 
 @Controller
 public class GenreController {
@@ -48,9 +49,16 @@ public class GenreController {
 
 	@RequestMapping(value="/condition/{conditionName}", method = RequestMethod.GET )
 	public ResponseEntity<Genres> getCondition(@PathVariable("conditionName") String conditionName) {
-		Genres genre = genreService.getCondition(conditionName);
-		return new ResponseEntity<Genres>(genre, HttpStatus.OK);
+		Genres conditions = genreService.getCondition(conditionName);
+		return new ResponseEntity<Genres>(conditions, HttpStatus.OK);
 	}
+	
+/*	@RequestMapping(value="/condition/{conditionName}", method = RequestMethod.GET )
+	public ResponseEntity<Genres> getCondition(@PathVariable("conditionMethod") String conditionMethod) {
+		Genres conditions = genreService.getCondition(conditionName);
+		return new ResponseEntity<Genres>(conditions, HttpStatus.OK);
+	}*/
+	
 	/*@RequestMapping(value= "/employee", method = RequestMethod.POST)
 	public ResponseEntity<Void> employeePerson(@RequestBody Employee employee, UriComponentsBuilder builder) {
         boolean flag = employeeService.addEmployee(employee);

@@ -14,7 +14,7 @@ import com.tiyssa.entity.Genres;
 @Repository
 public class GenreDAO implements IGenreDAO {
 
-	String conditions = "Snow";
+	String conditions;
 	
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
@@ -23,7 +23,7 @@ public class GenreDAO implements IGenreDAO {
 	public Genres getGenreById(Integer genreId) {
 		return hibernateTemplate.get(Genres.class, genreId);
 	}
-	
+	@Override
 	public Genres getCondition(String condition) {
 		return hibernateTemplate.get(Genres.class, condition);
 	}
@@ -42,10 +42,15 @@ public class GenreDAO implements IGenreDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	
-	public List<Genres> getConditionStatus() {
-		String hql = "SELECT genreById FROM Genres WHERE weatherCondition LIKE '%"+conditions+"%' " ;
+		public List<Genres> getConditionStatus() {
+		String hql = "SELECT genreById FROM Genres WHERE weatherCondition LIKE '%"+MovieGenreWeatherMethods.weatherConditions(conditions)+"%' " ;
 		return (List<Genres>) hibernateTemplate.find(hql);
+	}
+
+	@Override
+	public Genres getTableId(int tableId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
+
+import com.tiyssa.servlets.JsonServlet;
   
 
 @SpringBootApplication(exclude = { HibernateJpaAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class}) 
@@ -14,6 +16,7 @@ public class Application extends SpringBootServletInitializer  {
 	
 	public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+        System.out.println(JsonServlet.conVar);
     } 
 	
 	 @Override
