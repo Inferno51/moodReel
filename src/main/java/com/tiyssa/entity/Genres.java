@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//This class defines what is in the the condition_genres table in the DB
+
 @Entity
 @Table(name="condition_genres")
 public class Genres implements Serializable { 

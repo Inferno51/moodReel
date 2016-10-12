@@ -17,6 +17,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 @EnableTransactionManagement
 public class DbConfig {
 
+	
 	@Bean
 	public HibernateTemplate hibernateTemplate() {
 		return new HibernateTemplate(sessionFactory());
@@ -28,7 +29,7 @@ public class DbConfig {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/mood_reel?autoReconnect=true&useSSL=false");
 		dataSource.setUsername("root");
-		dataSource.setPassword("sesame");
+		dataSource.setPassword("root");
 		return dataSource;
 	}
 
