@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.tiyssa.MovieGenreWeatherMethods;
 import com.tiyssa.dao.IGenreDAO;
 
 import com.tiyssa.entity.Genres;
@@ -29,16 +29,10 @@ public class GenreService implements IGenreService {
 	}
 
 	@Override
-	public Genres getCondition(String condition) {
-		Genres obj = genreDAO.getCondition(condition);
+	public List<Genres> getCondition(String condition) {
+		String weatherCond = MovieGenreWeatherMethods.weatherConditions(condition);
+		List<Genres> obj = genreDAO.getCondition(weatherCond);
 		return obj;
 	}
 
-	@Override
-	public List<Genres> getConditionStatus(){
-		return genreDAO.getConditionStatus();
-	}
-
-	
-	
 }

@@ -1,66 +1,70 @@
 package com.tiyssa;
 
+public class MovieGenreWeatherMethods {
 
+	static String[] rainList = { "drizzle", "rain", "mist", "spray", "squals", "showers" };
+	static String[] cloudyList = { "haze", "thunderstorm", "cloud", "overcast", "cloudy" };
+	static String fogList = "fog";
+	static String[] hailList = { "crystals", "ice", "hail", "thunderstorms and ice", "thunderstorms with hail" };
+	static String[] snowList = { "snow", "thunderstorms and snow" };
+	static String clearList = "clear";
+	static String[] otherList = { "smoke", "ash", "sand", "dust", "funnel", "unknown" };
+	static String weather = null;
+	static String condition = null;
 
-	import java.util.ArrayList;
-	import java.util.Scanner;
+	public static String weatherConditions(String weather) {
 
-	public class MovieGenreWeatherMethods {
-
-		static String[] rainList = {"Drizzle","Rain","Mist","Spray","Squals"};
-		static String[] cloudyList = {"Haze","Thunderstorm","Cloud","Overcast"};
-		static String fogList = "Fog";
-		static String[] hailList = {"Crystals","Ice","Hail","Thunderstorms and Ice","Thunderstorms with Hail"};
-		static String[] snowList = {"Snow","Thunderstorms and Snow"};
-		static String clearList = "Clear";
-		static String[] otherList = {"Smoke","Ash","Sand","Dust","Funnel","Unknown"};
-		static String weather = null;
-		static Scanner sc = new Scanner(System.in) ;                                                        
-		
-		public static String weatherConditions(String weather){
-	//	public static void main(String[] args) {
-			
-		weather = sc.nextLine();
-			String condition = null;
-		
+		weather = weather.toLowerCase();
 
 		do {
-			for(int i = 0; i < hailList.length; i++){
-				if(weather.contains(hailList[i])){
-					condition = "Hail";
+			for (int i = 0; i < hailList.length; i++) {
+				if (weather.contains(hailList[i])) {
+					condition = "hail";
+					break;
 				}
 			}
-			for(int i = 0; i < snowList.length; i++){
-				if(weather.contains(snowList[i]) ){
-					condition = "Snow";
+			for (int i = 0; i < snowList.length; i++) {
+				if (weather.contains(snowList[i])) {
+					condition = "snowy";
+					break;
 				}
 			}
-			for(int i = 0; i < cloudyList.length; i++){
-				if(weather.contains(cloudyList[i]) ){
-					condition = "Cloudy";
+
+			for (int i = 0; i < rainList.length; i++) {
+				if (weather.contains(rainList[i])) {
+					condition = "rain";
+					break;
 				}
 			}
-			for(int i = 0; i < rainList.length; i++){
-				if(weather.contains(rainList[i]) ){
-					condition = "Rain";
+
+			for (int i = 0; i < cloudyList.length; i++) {
+				if (weather.contains(cloudyList[i])) {
+					condition = "cloudy";
+					break;
 				}
 			}
-			for(int i = 0; i < otherList.length; i++){
-				if(weather.contains(otherList[i]) ){
-					condition = "Other";
+
+			for (int i = 0; i < otherList.length; i++) {
+				if (weather.contains(otherList[i])) {
+					condition = "other";
+					break;
 				}
 			}
-			
-				if(weather.contains(fogList) ){
-					condition = "Fog";
-				}
-				if(weather.contains(clearList) ){
-					condition = "Clear";
-				}
-			
+
+			if (weather.contains(fogList)) {
+				condition = "fog";
+				break;
+			}
+
+			if (weather.contains(clearList)) {
+				condition = "clear";
+				break;
+
+			}
+
 		} while (condition == null);
+
 		return condition;
-	//	System.out.println(condition);
+
 	}
-	
 }
