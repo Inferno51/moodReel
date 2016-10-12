@@ -23,8 +23,10 @@ $(function(counter) {
 									})
 
 									$.when(promise).then(function(data){
+
+										var genre = data[0];
 										
-										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&primary_release_year=2016&with_genres="+ genre,
+										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&primary_release_year=2016&with_genres="+ genre + ".json",
 												function(data) {
 									var htmlElements = "";
 									for (var i = 0; i < data.results.length; i++) {
