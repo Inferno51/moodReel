@@ -27,7 +27,7 @@ $(function() {
 										
 								
 								        var txt = "";
-								        txt += '<table><tr><th>' + id + '</th><th>' + title + '</th><th>' + vote_average + '</th><th>' + backdrop_path + '</th><th>' + overview + '</th></tr>';
+								        txt += '<table><tr><th>' + id + '</th><img src="https://image.tmdb.org/t/p/w92' + backdrop_path + '"></img><th>' + title + '</th><th>' + vote_average + '</th><th>' + overview + '</th></tr>';
 								        htmlElements += '<div id="div1">' + txt + '</div>';
 								    }
 								    var div1 = document.getElementById("div1");
