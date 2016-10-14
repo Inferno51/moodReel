@@ -1,10 +1,11 @@
 $(function(counter) {
-	
+			// Function occurs on lookupButton click
 			$("#lookupButton").click(
 					function() {
+						// Builds API query to request weather conditions for user-provided zip code.
 						$.get("http://api.wunderground.com/api/b6882d76267c419a/conditions/q/" + $("#zipcode").val() + ".json",
 								function(data) {
-									
+									// This area gathers and stores the weather conditions data.
 									var conditionVar = data['current_observation']['weather'];
 										
 									$("#condition").html(conditionVar)
@@ -12,8 +13,7 @@ $(function(counter) {
 									$("#wind_dir").html(data.current_observation.wind_dir)
 									$("#wind_mph").html(data.current_observation.wind_mph)
 									
-									console.log(conditionVar);
-									
+									// Database linking code
 									var promise = $.get("/condition/"+ conditionVar,
 										function(data) {
 																				
@@ -21,7 +21,8 @@ $(function(counter) {
 											console.log(genre);
 																					
 									})
-
+									
+									
 									$.when(promise).then(function(data){
 
 										var genre = data[0];
@@ -29,6 +30,8 @@ $(function(counter) {
 										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&primary_release_year=2016&with_genres="+ genre + ".json",
 												function(data) {
 									var htmlElements = "";
+									
+									// Populate the movie display table with movie suggestions.
 									for (var i = 0; i < data.results.length; i++) {
 										
 
@@ -44,10 +47,8 @@ $(function(counter) {
 
 										var overview = data.results[i].overview;
 
-										
-								
 								        var txt = "";
-								        txt += '<table><tr><th>' + id + '</th><th>' + title + '</th><th>' + vote_average + '</th><th>' + backdrop_path + '</th><th>' + overview + '</th></tr>';
+								        txt += '<table><tr><td><img src="https://image.tmdb.org/t/p/w92' + backdrop_path + '"></img></td><td><a href="https://api.themoviedb.org/3/movie/' + id + '?api_key=c9bd9d09ec5086253a01a6d67f5a1a75" target="_blank">' + title + '</a></td><td>' + vote_average + '</td><td>' + overview + '</td></tr>';
 								        htmlElements += '<div id="div1">' + txt + '</div>';
 								    }
 								    var div1 = document.getElementById("div1");
