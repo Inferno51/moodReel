@@ -151,17 +151,14 @@
                         <div class="form-group">
                             <label for="zipcode">Zip Code: </label>
                             <input type="text" id="zipcode" name="zipcode" placeholder="Zip Code">
+                            <a href="#results" class="page-scroll"><button type="button" class="btn btn-default" id="lookupButton">Submit</button></a>
                         </div>
                         
-                        <a href="#results" class="page-scroll"><button type="button" class="btn btn-default" id="lookupButton">Submit</button></a>
+                        
 
-                    <div class="checkbox">
-                        <label><input type="checkbox">Opposite Weather?*</label>
+                    <div class="col-lg-12 text-center">
+                        <a href="#page-top" class="page-scroll btn btn-xl">Top</a>
                     </div>
-                    <p><i>*Use this option if you want to get suggestions that are opposite to your current weather.</i></p>
-
-
-                    <a href="#page-top" class="page-scroll btn btn-xl">Top</a>
                 </div>
             </div>
         </div>
@@ -207,7 +204,6 @@
                 
                 <div id="movieDisplay">
                     <div id="div1"></div>
-                    
                 </div>    
                 
                 
@@ -217,6 +213,44 @@
               </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- Movie Detail Section -->
+    <section id="movieDetail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                            
+                                <th>Tagline</th>
+                            
+                                <th>Poster Path</th>
+                            
+                                <th>Overview</th>
+                
+                                <th>IMDB Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="poster_path"></td>
+
+                                <td id="title"></td>
+                            
+                                <td id="tagline"></td>
+                            
+                                <td id="overview"></td>
+                            
+                                <td id="imdb_id"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
