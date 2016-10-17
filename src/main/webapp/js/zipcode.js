@@ -48,50 +48,37 @@ $(function(counter) {
 														var overview = data.results[i].overview;
 
 												        var txt = "";
-												        txt += '<table><tr><td><img src="https://image.tmdb.org/t/p/w92' + poster_path + '"></img></td><td><a href="#movieDetail"><button type="button" id="movieDetailButton">' + title + '</button></a></td><td>' + vote_average + '</td><td>' + overview + '</td></tr>';
-												        htmlElements += '<div id="div1">' + txt + '</div>';
-
-
+												        txt += '<table><tr><td><img src="https://image.tmdb.org/t/p/w92' + poster_path + '"></img></td><td><a href="#movieDetail"><button data-movieid="' + id +'" type="button" id="movieDetailButton">' + title + '</button></a></td><td>' + vote_average + '</td><td>' + overview + '</td></tr>';
+												        $("#div1").append(txt)
 												    }
-												var div1 = document.getElementById("div1");
-												div1.innerHTML = htmlElements;
 												})
 									});
-
-					
 					});			
-			});
-$(function(movieDetailButton){
-															$("#movieDetailButton").click(
-																	function() {
-												                        var id = data.results[i].id;
-																		console.log(id),
-																		$.get("https://api.themoviedb.org/3/movie/" + id + "?api_key=c9bd9d09ec5086253a01a6d67f5a1a75",
-																			console.log(id),
-																			function(data) {
+		
 
+	$( "#div1" ).delegate( "button", "click", function() {
+  		alert($(this).data("movieid"))
+  		console.log($(this).data("movieid"))
 
+		$.get("https://api.themoviedb.org/3/movie/" + $(this).data("movieid") + "?api_key=c9bd9d09ec5086253a01a6d67f5a1a75",
+			// console.log($(this).data("movieid")))
+			function(data) {
 
-																				
-																				var poster_path = data.results.poster_path;
-																				$("#poster_path").html(poster_path)	
+				var poster_path = data.poster_path;
+				$("#poster_path").html('<img src="https://image.tmdb.org/t/p/w92' + poster_path + '"></img>');	
 
-																				var title = data.results.title;
-																				$("#title").html(title);
+				var title = data.title;
+				$("#title").html('<a href="http://www.imdb.com/title/' + imdb_id + '>' + title + '</a>');
 
-																				var tagline = data.results.tagline;
-																				$("#tagline").html(tagline);
-																				
-																				var overview = data.results[i].overview;
-																				$("#overview").html(overview)
-																				
-																				var imdb_id = "http://www.imdb.com/title/" + data.results.imdb_id;
-																				$("#imdb_id").html(imdb_id)
-																				
-																			})
-															})
-														})
+				var tagline = data.tagline;
+				$("#tagline").html(tagline);
+				
+				var overview = data.overview;
+				$("#overview").html(overview)
+					
+		})
+	});
+
 });
-
-
+});
 
