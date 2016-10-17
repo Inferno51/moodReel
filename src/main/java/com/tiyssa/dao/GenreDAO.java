@@ -33,7 +33,7 @@ public class GenreDAO implements IGenreDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Genres> getCondition(String condition) {
-		String hql = "SELECT genreById FROM Genres WHERE weatherCondition = '" + condition + "'";
+		String hql = "SELECT genreById, image FROM Genres WHERE weatherCondition = '" + condition + "'";
 		return (List<Genres>) hibernateTemplate.find(hql);
 	}
 
