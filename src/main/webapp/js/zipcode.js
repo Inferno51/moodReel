@@ -15,15 +15,18 @@ $(function(counter) {
 									
 									// Database linking code
 									var promise = $.get("/condition/"+ conditionVar,
-										function(data) {
-																				
+										function([data]) {
+																			
 											var genre = data[0];
 											console.log(genre);
+											
+											var image = data[1];
+											console.log(image);
 																					
 									})
 									
 									
-									$.when(promise).then(function(data){
+									$.when(promise).then(function([data]){
 
 										var genre = data[0];
 										

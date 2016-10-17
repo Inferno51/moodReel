@@ -25,6 +25,17 @@ public class Genres implements Serializable {
 
     @Column(name="genre_by_id")
     private String genreById;
+    
+    @Column(name="image")
+    private String image;
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public int getTableId() {
 		return tableId;
