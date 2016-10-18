@@ -7,6 +7,7 @@ $(function(counter) {
 								function(data) {
 									// This area gathers and stores the weather conditions data.
 									var conditionVar = data['current_observation']['weather'];
+									$("#city").html(data.current_observation.display_location.full)
 									$("#icon_url").html('<img src="' + data.current_observation.icon_url + '">')	
 									$("#condition").html(conditionVar)
 									$("#temp_f").html(data.current_observation.temp_f)
