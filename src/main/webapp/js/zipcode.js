@@ -7,7 +7,8 @@ $(function(counter) {
 								function(data) {
 									// This area gathers and stores the weather conditions data.
 									var conditionVar = data['current_observation']['weather'];
-										
+									$("#city").html(data.current_observation.display_location.full)
+									$("#icon_url").html('<img src="' + data.current_observation.icon_url + '">')	
 									$("#condition").html(conditionVar)
 									$("#temp_f").html(data.current_observation.temp_f)
 									$("#wind_dir").html(data.current_observation.wind_dir)
@@ -18,10 +19,8 @@ $(function(counter) {
 										function([data]) {
 																			
 											var genre = data[0];
-											console.log(genre);
-											
+								
 											var image = data[1];
-											console.log(image);
 																					
 									})
 									
@@ -30,7 +29,7 @@ $(function(counter) {
 
 										var genre = data[0];
 										
-										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&primary_release_year=2016&with_genres="+ genre + ".json",
+										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&release_date.gte=2000&vote_average.gte=7.5&vote_count.gte=10&release_date.lte=2016&with_genres="+ genre + ".json",
 												function(data) {
 													var htmlElements = "";
 													
