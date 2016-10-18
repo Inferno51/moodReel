@@ -28,7 +28,7 @@ $(function(counter) {
 
 										var genre = data[0];
 										
-										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&primary_release_year=2016&with_genres="+ genre + ".json",
+										var promise = $.get("https://api.themoviedb.org/3/discover/movie?api_key=c9bd9d09ec5086253a01a6d67f5a1a75&language=en-US&release_date.gte=2000&vote_average.gte=7.5&vote_count.gte=10&release_date.lte=2016&with_genres="+ genre + ".json",
 												function(data) {
 													var htmlElements = "";
 													
