@@ -5,6 +5,9 @@ $(function(counter) {
 						// Builds API query to request weather conditions for user-provided zip code.
 						$.get("http://api.wunderground.com/api/b6882d76267c419a/conditions/q/" + $("#zipcode").val() + ".json",
 								function(data) {
+									// Resets zipcode input form
+									$("#zipcodeForm").trigger('reset')
+									
 									// This area gathers and stores the weather conditions data.
 									var conditionVar = data['current_observation']['weather'];
 									$("#city").html(data.current_observation.display_location.full)
