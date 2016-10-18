@@ -38,17 +38,13 @@ $(function(counter) {
 														data[i];
 
 														var id = data.results[i].id;
-
 														var title = data.results[i].title;
-
 														var vote_average = data.results[i].vote_average;
-
 														var poster_path = data.results[i].poster_path;
-
 														var overview = data.results[i].overview;
 
 												        var txt = "";
-												        txt += '<table><tr><td><img src="https://image.tmdb.org/t/p/w92' + poster_path + '"></img></td><td><a href="#movieDetail"><button data-movieid="' + id +'" type="button" id="movieDetailButton">' + title + '</button></a></td><td>' + vote_average + '</td><td>' + overview + '</td></tr>';
+												        txt += '<table><tr><td><img src="https://image.tmdb.org/t/p/w92' + poster_path + '"></img></td><td><a href="#movieDetail" data-movieid="' + id + '" id="movieDetailButton">' + title + '</a></td><td>' + vote_average + '</td><td>' + overview + '</td></tr>';
 												        $("#div1").append(txt)
 												    }
 												})
@@ -56,26 +52,29 @@ $(function(counter) {
 					});			
 		
 
-	$( "#div1" ).delegate( "button", "click", function() {
-  		alert($(this).data("movieid"))
-  		console.log($(this).data("movieid"))
-
+	$( "#div1" ).delegate( "a", "click", function() {
 		$.get("https://api.themoviedb.org/3/movie/" + $(this).data("movieid") + "?api_key=c9bd9d09ec5086253a01a6d67f5a1a75",
-			// console.log($(this).data("movieid")))
 			function(data) {
 
 				var poster_path = data.poster_path;
 				$("#poster_path").html('<img src="https://image.tmdb.org/t/p/w92' + poster_path + '"></img>');	
 
+				var imdb_id = data.imdb_id;
 				var title = data.title;
-				$("#title").html('<a href="http://www.imdb.com/title/' + imdb_id + '>' + title + '</a>');
+				$("#title").html('<a href="http://www.imdb.com/title/' + imdb_id + '" target="_blank">' + title + '</a>');
 
 				var tagline = data.tagline;
 				$("#tagline").html(tagline);
 				
 				var overview = data.overview;
-				$("#overview").html(overview)
-					
+				$("#overview").html(overview);
+
+				var release_date = data.release_date;
+				$("#release_date").html(release_date);
+
+				var runtime = data.runtime;
+				$("#runtime").html(runtime + " minutes");
+				
 		})
 	});
 
